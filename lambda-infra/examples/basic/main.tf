@@ -1,0 +1,1 @@
+module "lambda" { source="../../"; app_short_name="myapp"; env="dev"; lambda_name="myapp-dev-file-processor"; lambda_zip_path="./deployment.zip"; handler="index.handler"; runtime="python3.9"; application_owner_email="team@example.com"; git_repo_name="myapp-repo"; project_ritm="RITM0012345"; cmdb_id="CMDB001" }

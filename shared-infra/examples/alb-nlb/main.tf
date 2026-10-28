@@ -1,0 +1,2 @@
+provider "aws" { region="us-east-2" }
+module "shared_infra" { source="../../"; alb_short_name="myapp"; env="prod"; cert_arn="arn:aws:acm:us-east-2:123456789012:certificate/abc"; create_nlb_module=true; nlb_staticips=["10.0.1.10","10.0.2.10","10.0.3.10"]; nlb_trusted_ip_ranges={partner={cidr="203.0.113.0/24",description="Partner network"}}; application_owner_email="owner@umb.com"; project_ritm="RITM0012345"; git_repo_name="myapp-infra"; cmdb_id="APP-001234" }

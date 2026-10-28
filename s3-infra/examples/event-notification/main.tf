@@ -1,0 +1,1 @@
+module "s3" { source="../../"; bucket_name="myapp-prod-uploads-example"; app_short_name="myapp"; env="prod"; enable_event_notification=true; lambda_function_arn="arn:aws:lambda:us-east-2:123456789012:function:myapp-file-processor"; event_notification_filter_prefix="uploads/"; event_notification_filter_suffix=".csv"; event_types=["s3:ObjectCreated:*"] }

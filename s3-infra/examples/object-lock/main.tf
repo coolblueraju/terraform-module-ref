@@ -1,0 +1,1 @@
+module "s3" { source="../../"; bucket_name="myapp-prod-compliance-example"; app_short_name="myapp"; env="prod"; versioning_enabled=true; enable_object_lock=true; object_lock_mode="COMPLIANCE"; object_lock_days=2555 }

@@ -1,0 +1,11 @@
+# VPCE deployment checklist
+- [ ] create_vpce_module is intentionally true/false.
+- [ ] Service name and region are correct.
+- [ ] Default type is correct: DynamoDB/S3 Gateway, other services Interface unless overridden.
+- [ ] Gateway route-table IDs are from the intended VPC routes.
+- [ ] Private subnets exist for Interface endpoints.
+- [ ] Private DNS behavior is intentional.
+- [ ] primary_vpce_key and apigw_source_vpce_key refer to configured keys.
+- [ ] Both ACM certificates exist before custom domains are enabled.
+- [ ] Caller applies SourceVpce domain/API policies using apigw_source_vpce_id where required.
+- [ ] Run fmt, validate, plan and review before apply.

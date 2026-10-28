@@ -1,0 +1,1 @@
+output "nlb_dns_name" { value=aws_lb.nlb_load_balancer.dns_name }; output "nlb_name" { value=aws_lb.nlb_load_balancer.name }; output "nlb_arn" { value=aws_lb.nlb_load_balancer.arn }; output "zone_id" { value=aws_lb.nlb_load_balancer.zone_id }

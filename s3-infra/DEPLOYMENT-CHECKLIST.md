@@ -1,0 +1,12 @@
+# S3 deployment checklist
+- [ ] Bucket name is globally unique and follows LoB naming standards.
+- [ ] Public access block remains enabled unless explicitly approved.
+- [ ] Encryption choice and KMS key policy are reviewed.
+- [ ] Versioning/lifecycle settings meet recovery and retention requirements.
+- [ ] Object Lock is enabled only with versioning and approved retention mode/days.
+- [ ] Logging target bucket exists and accepts S3 server access logs.
+- [ ] Custom bucket policy is IAM-reviewed.
+- [ ] Lambda ARN exists before enabling notifications.
+- [ ] DynamoDB dispatcher role/table exist before enabling that policy.
+- [ ] force_destroy is false for production data unless explicitly approved.
+- [ ] Run fmt, validate, plan, and review before apply.

@@ -1,0 +1,11 @@
+# Lambda deployment checklist
+- [ ] ZIP exists at lambda_zip_path and contains handler/dependencies.
+- [ ] Handler and runtime match the package.
+- [ ] UMB-tagged VPC and private subnets exist.
+- [ ] NAT or required VPC endpoints exist.
+- [ ] Review dedicated SG egress and any additional rules.
+- [ ] Review broad S3/ECS/ECR/CloudWatch IAM policies.
+- [ ] If DynamoDB enabled, table exists and requested actions are least privilege.
+- [ ] If stream read enabled, table stream exists; create event-source mapping separately.
+- [ ] Validate timeout <= 900 and memory sizing.
+- [ ] Run terraform fmt, validate, plan, and review before apply.

@@ -1,0 +1,12 @@
+# User endpoints deployment checklist
+- [ ] Workspace is test, qa, or prod.
+- [ ] Default VPC and expected public/private/vpclink subnets exist.
+- [ ] ACM certificate region and domain coverage are correct.
+- [ ] Approved trusted CIDRs are supplied.
+- [ ] For mTLS verify, S3 CA bundle and trust-store configuration are valid.
+- [ ] For NLB, internal ALB exists first and exactly 3 static IPs are valid.
+- [ ] For VPC Link, NLB exists first.
+- [ ] Review wide-open NLB ingress from supplied contract.
+- [ ] Review VPCE endpoint policy and custom-domain SourceVpce restriction.
+- [ ] Associate WAF externally if required.
+- [ ] Run terraform fmt, validate, plan and review before apply.

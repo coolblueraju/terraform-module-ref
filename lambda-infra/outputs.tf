@@ -1,0 +1,9 @@
+output "lambda_function_name" { value=aws_lambda_function.this.function_name }
+output "lambda_function_arn" { value=aws_lambda_function.this.arn }
+output "lambda_function_invoke_arn" { value=aws_lambda_function.this.invoke_arn }
+output "lambda_role_arn" { value=aws_iam_role.lambda.arn }
+output "lambda_role_name" { value=aws_iam_role.lambda.name }
+output "lambda_security_group_id" { value=aws_security_group.lambda.id }
+output "lambda_log_group_name" { value=aws_cloudwatch_log_group.lambda.name }
+output "lambda_qualified_arn" { value=aws_lambda_function.this.qualified_arn }
+output "lambda_version" { value=aws_lambda_function.this.version }

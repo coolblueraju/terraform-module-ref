@@ -1,0 +1,7 @@
+variable "app_short_name" { type = string }
+variable "env" { type = string }
+variable "application_owner_email" { type = string }
+variable "project_ritm" { type = string }
+variable "git_repo_name" { type = string }
+variable "cmdb_id" { type = string }
+variable "apprepo_tags" { type = map(string); default = {} }

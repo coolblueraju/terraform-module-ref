@@ -1,0 +1,8 @@
+locals { envmap={test="dev",qa="qa",prod="prod"}; compliant_env=lookup(local.envmap,terraform.workspace,null); tags=merge({umbAppName=var.alb_short_name,umbEnvironment=local.compliant_env,umbApplicationOwner=var.application_owner_email,umbProjectRITM=var.project_ritm,umbGitRepository=var.git_repo_name,umbCMDBID=var.cmdb_id},var.apprepo_tags) }
+resource "aws_wafv2_web_acl" "waf" {
+  name="${var.alb_short_name}-waf"; scope=var.scope
+  dynamic "default_action" { for_each=[var.waf_default_action]; content { dynamic "allow" { for_each=default_action.value=="allow"?[1]:[]; content {} }; dynamic "block" { for_each=default_action.value=="block"?[1]:[]; content {} } } }
+  dynamic "rule" { for_each=var.enable_common_rule_set?[1]:[]; content { name="AWSManagedRulesCommonRuleSet"; priority=10; dynamic "override_action" { for_each=[var.managed_rule_override_action]; content { dynamic "none" { for_each=override_action.value=="none"?[1]:[]; content {} }; dynamic "count" { for_each=override_action.value=="count"?[1]:[]; content {} } } }; statement { managed_rule_group_statement { name="AWSManagedRulesCommonRuleSet"; vendor_name="AWS"; dynamic "excluded_rule" { for_each=toset(var.waf_excluded_rules); content { name=excluded_rule.value } } } }; visibility_config { cloudwatch_metrics_enabled=true; metric_name="${var.alb_short_name}-common"; sampled_requests_enabled=true } } }
+  visibility_config { cloudwatch_metrics_enabled=true; metric_name="${var.alb_short_name}-waf"; sampled_requests_enabled=true }; tags=local.tags
+  lifecycle { precondition { condition=local.compliant_env!=null; error_message="workspace must be test, qa, or prod." } }
+}

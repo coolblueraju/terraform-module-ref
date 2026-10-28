@@ -1,0 +1,1 @@
+module "s3" { source="../../"; bucket_name="myapp-prod-dispatch-example"; app_short_name="myapp"; env="prod"; grant_dynamodb_access=true; dynamodb_table_name="myapp-table"; dispatcher_lambda_role_name="myapp-prod-dispatcher-lambda-role"; dynamodb_access_actions=["dynamodb:GetItem","dynamodb:PutItem","dynamodb:UpdateItem","dynamodb:Query"] }

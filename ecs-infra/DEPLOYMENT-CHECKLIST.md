@@ -1,0 +1,12 @@
+# ECS deployment checklist
+- [ ] ECR `<app>-ecr` exists and contains at least one image.
+- [ ] Shared `<alb>-alb` exists with HTTPS listener 443.
+- [ ] Default VPC and private Name-tagged subnets exist.
+- [ ] Workspace is test, qa, or prod.
+- [ ] Fargate CPU/memory combination is valid.
+- [ ] ALB SG can reach ECS port; ECS egress meets endpoint/NAT requirements.
+- [ ] Health endpoint supports the configured HTTPS target group behavior.
+- [ ] Review Secrets Manager, SSM, S3, CloudWatch, and DynamoDB IAM scope.
+- [ ] If DynamoDB enabled, all named tables already exist.
+- [ ] Review min/max capacity and CPU target.
+- [ ] Run fmt, validate, plan, and inspect before apply.

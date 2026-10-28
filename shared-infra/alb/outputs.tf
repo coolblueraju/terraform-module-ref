@@ -1,0 +1,1 @@
+output "alb_sg_id" { value=aws_security_group.alb_sg.id }; output "alb_dns_name" { value=aws_lb.alb_load_balancer.dns_name }; output "alb_arn_suffix" { value=aws_lb.alb_load_balancer.arn_suffix }; output "alb_arn" { value=aws_lb.alb_load_balancer.arn }; output "zone_id" { value=aws_lb.alb_load_balancer.zone_id }

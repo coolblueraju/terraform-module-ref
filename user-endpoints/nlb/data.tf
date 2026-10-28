@@ -1,0 +1,1 @@
+data "aws_vpc" "default" { default=true }; data "aws_subnets" "vpclink" { filter { name="vpc-id" values=[data.aws_vpc.default.id] }; filter { name="tag:Name" values=["*vpclink*"] } }; data "aws_lb" "alb" { name="${var.alb_short_name}-internal-alb" }

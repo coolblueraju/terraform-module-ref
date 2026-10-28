@@ -1,0 +1,1 @@
+locals { env_map={test="dev",qa="qa",prod="prod"}; compliant_env=lookup(local.env_map,terraform.workspace,null); tags=merge({umbAppName=var.alb_short_name,umbEnvironment=local.compliant_env,umbApplicationOwner=var.application_owner_email,umbProjectRITM=var.project_ritm,umbGitRepository=var.git_repo_name,umbCMDBID=var.cmdb_id},var.apprepo_tags) }

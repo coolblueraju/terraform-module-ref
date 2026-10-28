@@ -1,0 +1,11 @@
+# Shared infrastructure deployment checklist
+- [ ] Default VPC is the intended network.
+- [ ] Exactly three intended private subnets match naming conventions.
+- [ ] Workspace is test, qa, or prod.
+- [ ] ACM certificate is valid for the desired DNS names and region.
+- [ ] Approved ALB trusted CIDRs are supplied; no enterprise CIDRs were invented in this package.
+- [ ] If NLB enabled, exactly three unused static IPs are valid in their subnet CIDRs.
+- [ ] NLB partner CIDRs are approved.
+- [ ] ALB deletion protection behavior is understood.
+- [ ] Application forwarding listener rules will be created separately.
+- [ ] Run fmt, validate, plan, and review before apply.

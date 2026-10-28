@@ -1,0 +1,1 @@
+module "application_bucket" { source="../../"; bucket_name="myapp-prod-app-example"; app_short_name="myapp"; env="prod"; enable_logging=true; logging_target_bucket="myapp-prod-logs-existing"; logging_target_prefix="application-bucket-logs/" }

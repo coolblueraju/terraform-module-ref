@@ -1,0 +1,1 @@
+output "waf_web_acl_id" { value=aws_wafv2_web_acl.waf.id }; output "waf_web_acl_arn" { value=aws_wafv2_web_acl.waf.arn }; output "waf_web_acl_name" { value=aws_wafv2_web_acl.waf.name }; output "waf_web_acl_capacity" { value=aws_wafv2_web_acl.waf.capacity }

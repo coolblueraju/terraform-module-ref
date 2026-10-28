@@ -1,0 +1,12 @@
+# RDS deployment checklist
+- [ ] SSM `<name>-rds-user` and `<name>-rds-password` exist.
+- [ ] Terraform backend is encrypted/restricted because credentials are evaluated by Terraform.
+- [ ] Workspace is test, qa, or prod.
+- [ ] Default VPC is correct.
+- [ ] Exactly two intended private subnets match the documented Name patterns.
+- [ ] Engine version and parameter-group family are compatible.
+- [ ] Tuning maps contain the derived instance-size key.
+- [ ] Review VPC-wide inbound rule and extra CIDRs.
+- [ ] Confirm port 8432 or configured custom port is intended.
+- [ ] Confirm deletion protection=false and skip_final_snapshot=true are acceptable.
+- [ ] Run terraform fmt, validate, plan, and review before apply.

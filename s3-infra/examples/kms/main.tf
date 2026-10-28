@@ -1,0 +1,1 @@
+module "s3" { source="../../"; bucket_name="myapp-prod-sensitive-example"; app_short_name="myapp"; env="prod"; enable_encryption=true; kms_key_id="arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012" }

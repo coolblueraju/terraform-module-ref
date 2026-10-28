@@ -1,0 +1,1 @@
+output "vpc_link_id" { value=aws_api_gateway_vpc_link.this.id }; output "vpc_link_arn" { value=aws_api_gateway_vpc_link.this.arn }; output "vpc_link_target_nlb_arn" { value=data.aws_lb.target_nlb.arn }

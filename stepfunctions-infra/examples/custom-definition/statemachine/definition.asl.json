@@ -1,0 +1,13 @@
+{
+  "Comment": "Example production-style workflow skeleton",
+  "StartAt": "Prepare",
+  "States": {
+    "Prepare": {
+      "Type": "Pass",
+      "Result": {
+        "status": "ready"
+      },
+      "End": true
+    }
+  }
+}
